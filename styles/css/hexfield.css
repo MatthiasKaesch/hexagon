@@ -1,0 +1,140 @@
+@import url("./VARIABLES.css");
+.teams-gallery {
+  --hexCalculation: 1.15;
+  /* 1.1547 */
+  --heigth: calc(var(--hexWidth) * var(--hexCalculation));
+  --f: calc(1.732 * var(--hexWidth) + 2 * var(--hexMargin) - 1px); }
+  .teams-gallery-frame-1 {
+    padding: 8px;
+    background-color: darkorange; }
+  .teams-gallery-frame-2 {
+    padding: 8px;
+    background-color: red; }
+  .teams-gallery-frame-3 {
+    display: flex;
+    padding: 1rem 0 26rem;
+    background-color: forestgreen; }
+
+.hexfield {
+  box-sizing: border-box;
+  font-size: 0;
+  background-color: var(--clr-deco-light);
+  margin: 0 auto; }
+  .hexfield-spinner {
+    display: block;
+    width: 128px;
+    height: 128px;
+    margin: 0 auto; }
+    .hexfield-spinner:after {
+      content: "";
+      display: block;
+      width: 100%;
+      height: 100%;
+      margin-top: 6rem;
+      border-radius: 50%;
+      border: 12px solid var(--clr-primary);
+      border-color: var(--clr-primary) transparent var(--clr-secondary) transparent;
+      animation: Spinner 1.2s linear infinite; }
+
+@keyframes Spinner {
+  0% {
+    transform: rotate(0deg); }
+  100% {
+    transform: rotate(360deg); } }
+
+.hexfield::before {
+  content: "";
+  width: calc(var(--hexWidth) / 2 + var(--hexMargin));
+  float: left;
+  height: 100%;
+  shape-outside: repeating-linear-gradient(#0000 0 calc(var(--f) - 3px), #000 0 var(--f));
+  z-index: 100000; }
+
+.hexagon-wrap {
+  display: inline-block;
+  position: relative;
+  filter: drop-shadow(0px 0px var(--glowIntensity));
+  color: transparent;
+  margin: var(--hexMargin);
+  margin-bottom: calc(var(--hexMargin) - var(--hexWidth) * 0.2886);
+  z-index: 1;
+  transform: rotate3d(1, 1, 0, 90deg);
+  transition: z-index, color 2s ease-in;
+  animation: rotateHex 0.85s 0.5s ease-out forwards; }
+  .hexagon-wrap-teamname {
+    width: 0;
+    padding: 0;
+    top: 80%;
+    left: -22.5%;
+    z-index: 10000;
+    font-size: calc((var(--hexWidth) + (2 * var(--hexMargin))) / 6);
+    font-family: var(--fts-text);
+    color: transparent;
+    background-color: rgba(255, 255, 255, 0.88);
+    box-shadow: 4px 4px 10px var(--clr-secondary);
+    overflow: visible;
+    position: absolute;
+    white-space: nowrap;
+    transform: skew(-10deg);
+    -webkit-transform: skew(-10deg);
+    -moz-transform: skew(-10deg); }
+  .hexagon-wrap:hover {
+    filter: drop-shadow(0px 0px var(--glowIntensity));
+    z-index: 9000;
+    transition: color 0.75s ease-in; }
+    .hexagon-wrap:hover .hexagon-wrap-teamname {
+      text-overflow: hidden;
+      overflow: hidden;
+      animation: showTeamName 1.25s 0.175s forwards; }
+
+@keyframes rotateHex {
+  to {
+    transform: rotate3d(1, 0, 0, 0deg); } }
+
+@keyframes showTeamName {
+  0% {
+    color: transparent;
+    width: 0;
+    padding: 0; }
+  100% {
+    width: 120%;
+    color: var(--clr-secondary);
+    padding: 0 0.25rem; } }
+
+.hexagon {
+  width: var(--hexWidth);
+  height: var(--heigth);
+  background-color: var(--clr-deco-medium);
+  background-size: cover;
+  background-position: center;
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+  filter: grayscale(100);
+  transform: scale(1);
+  transition: transform 2s ease-in-out; }
+  .hexagon:hover {
+    background-size: 118%;
+    filter: grayscale(0);
+    transform: scale(var(--hoverScale));
+    transition: filter 0.5s ease-in;
+    transition: transform 0.33s ease-in-out; }
+
+.hexagon:hover:after {
+  content: "";
+  position: absolute;
+  top: -30%;
+  right: -200%;
+  width: 50%;
+  height: 200%;
+  opacity: 0;
+  transform: rotate(30deg);
+  background: linear-gradient(to right, rgba(255, 255, 255, 0.13) 0%, rgba(255, 255, 255, 0.13) 77%, rgba(255, 255, 255, 0.5) 92%, rgba(255, 255, 255, 0) 100%);
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  animation: shine 1.75s 0.66s; }
+
+@keyframes shine {
+  to {
+    opacity: 1;
+    right: 210%; } }

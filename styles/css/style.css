@@ -1,0 +1,22 @@
+@import url("./VARIABLES.css");
+body {
+  background-color: black; }
+
+.wrapper {
+  width: 90%;
+  max-width: 1800px;
+  margin: 0 auto;
+  position: relative;
+  background-color: #1b263b;
+  background-color: #202020;
+  background-image: linear-gradient(to right, black, rgba(0, 0, 0, 0) 20%, rgba(0, 0, 0, 0) 80%, black), linear-gradient(45deg, black 25%, transparent 25%, transparent 75%, black 75%, black), linear-gradient(45deg, black 25%, transparent 25%, transparent 75%, black 75%, black), linear-gradient(to bottom, #080808, #202020);
+  background-size: 100% 100%, 10px 10px, 10px 10px, 10px 5px;
+  background-position: 0px 0px, 0px 0px, 5px 5px, 0px 0px;
+  overflow: hidden; }
+
+label,
+p,
+span,
+a,
+output {
+  font-family: var(--fts-text); }
