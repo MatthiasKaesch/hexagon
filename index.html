@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./styles/css/normalize.css">
+  <link rel="stylesheet" href="./styles/css/style.css">
+  <link rel="stylesheet" href="./styles/css/hexfield.css">
+  <link rel="stylesheet" href="./styles/css/controls.css">
+  <link rel="stylesheet" href="./styles/css/header.css">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Russo+One&family=Saira+Extra+Condensed:wght@300;400&display=swap" rel="stylesheet">
+
+  <script src="./scripts/layoutHexfield.js" defer></script>
+  <script src="./scripts/script.js" defer></script>
+  <script src="./scripts/controls.js" defer></script>
+  <title>Teams Gallery</title>
+</head>
+
+<body>
+  <template id="hexagon_template">
+    <div class="hexagon-wrap">
+      <h3 class="hexagon-wrap-teamname">Teamname</h3>
+      <div class="hexagon">
+      </div>
+    </div>
+  </template>
+
+  <div class="wrapper">
+
+    <header class="header">
+      <nav class="navbar">
+        <ul class="navbar-list">
+          <li class="navbar-list-item ">
+            <a class="navbar-list-item-link" href="#">
+              Home
+            </a>
+            <div class="navbar-list-item-corner" tabindex="-1"></div>
+          </li>
+          <li class="navbar-list-item navbar-list-item-active">
+            <a class="navbar-list-item-link" href="#">Teams</a>
+            <div class="navbar-list-item-corner" tabindex="-1"></div>
+          </li>
+          <li class="navbar-list-item">
+            <a class="navbar-list-item-link" href="#">Tournament</a>
+            <div class="navbar-list-item-corner" tabindex="-1"></div>
+          </li>
+          <li class="navbar-list-item">
+            <a class="navbar-list-item-link" href="#">Standings</a>
+            <div class="navbar-list-item-corner" tabindex="-1"></div>
+          </li>
+          <li class="navbar-list-item">
+            <a class="navbar-list-item-link" href="#">News</a>
+            <div class="navbar-list-item-corner" tabindex="-1"></div>
+          </li>
+
+        </ul>
+      </nav>
+      <h1 class="header-headline">Teams Gallery</h1>
+    </header>
+
+
+
+
+
+    <div class="controls hidden" id="hex-controls">
+      <div class="controls-slides">
+
+        <label class="controls-slides-label" for="hex_size">Hexagon Size</label>
+        <input autocomplete="off" type="range" min="100" max="299" value="184" class="controls-slides-slider" name="hex_size" id="hex_size">
+        <output class="controls-slides-slider-bubble">184</output>
+
+        <!--  <label class="controls-slides-label" for="hover_size">Hover Size</label>
+        <input autocomplete="off" type="range" min="10" max="15" value="12" class="controls-slides-slider" name="hover_size" id="hover_size">
+        <output class="controls-slides-slider-bubble">12</output> -->
+
+        <label class="controls-slides-label" for="glow_strength">Glow Intensity</label>
+        <input autocomplete="off" type="range" min="0" max="150" value="20" class="controls-slides-slider" name="glow_strength"
+          id="glow_strength">
+        <output class="controls-slides-slider-bubble">20</output>
+
+      </div>
+    </div>
+
+    <div class="teams-gallery">
+      <div class="controls-hex" onclick="toggleHexControls()">
+        <div class="controls-hex-wrapper">
+          <div class="controls-hex-button">
+            <p>&#8703;</p>
+          </div>
+        </div>
+      </div>
+      <div class="border teams-gallery-frame-1">
+        <div class="border teams-gallery-frame-2">
+          <div class="border teams-gallery-frame-3">
+            <div class="hexfield">
+              <div class="hexfield-spinner"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+</body>
+
+
+
+</html>
