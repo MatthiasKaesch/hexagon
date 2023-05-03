@@ -1,10 +1,10 @@
 @import url("./VARIABLES.css");
 .teams-gallery {
-  --hexCalculation: 1.15;
-  /* 1.1547 */
+  --hexCalculation: 1.1547;
   --heigth: calc(var(--hexWidth) * var(--hexCalculation));
   --f: calc(1.732 * var(--hexWidth) + 2 * var(--hexMargin) - 1px); }
   .teams-gallery-frame-1 {
+    margin: 0 auto;
     padding: 8px;
     background-color: var(--clr-grey-medium); }
   .teams-gallery-frame-2 {
@@ -14,8 +14,6 @@
     display: flex;
     padding-top: 0.5rem;
     background-color: var(--clr-grey-medium); }
-  .teams-gallery .border {
-    background-image: linear-gradient(45deg, rgba(255, 255, 255, 0.13) 0%, rgba(255, 255, 255, 0.13) 33%, rgba(255, 255, 255, 0.5) 66%, rgba(255, 255, 255, 0) 75%), linear-gradient(45deg, rgba(0, 0, 0, 0.3) 25%, transparent 25%, transparent 75%, rgba(0, 0, 0, 0.3) 75%, rgba(0, 0, 0, 0.3)), linear-gradient(to bottom, rgba(8, 8, 8, 0.3), rgba(32, 32, 32, 0.3)); }
 
 .hexfield {
   box-sizing: border-box;
@@ -62,8 +60,8 @@
   margin-bottom: calc(var(--hexMargin) - var(--hexWidth) * 0.2886);
   z-index: 1;
   transform: rotate3d(1, 1, 0, 90deg);
-  transition: z-index, color 2s ease-in;
-  animation: rotateHex 0.85s 0.5s ease-out forwards; }
+  transition: z-index, color 1s ease;
+  animation: 0.85s ease-out forwards rotateHex; }
   .hexagon-wrap-teamname {
     width: max-content;
     max-width: 0;
@@ -103,13 +101,13 @@
   clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
   filter: grayscale(100);
   transform: scale(1);
-  transition: transform 2s ease-in-out; }
+  transition: transform 2s ease-in-out;
+  transition-delay: 0.5s; }
   .hexagon:hover {
     background-size: 118%;
     filter: grayscale(0);
     transform: scale(var(--hoverScale));
-    transition: filter 0.5s ease-in;
-    transition: transform 0.33s ease-in-out; }
+    transition: filter 0.5s ease-in, transform 0.33s ease-in-out; }
 
 .hexagon:hover:after {
   content: "";

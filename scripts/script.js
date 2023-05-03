@@ -4,8 +4,8 @@ const NAVBAR = document.querySelector(".navbar-list");
 fetch("./teams.json")
   .then((res) => res.json())
   .then((JSON) => {
-    LAYOUT_HEXFIELD();
     createHexagons(JSON);
+    LAYOUT_HEXFIELD();
   });
 
 const createHexagons = (JSON) => {
@@ -24,7 +24,7 @@ const createHexagons = (JSON) => {
     HEXAGON.children[0].innerText = JSON[i].name;
 
     applyTeamColor(HEXAGON);
-    HEXAGON.style.animationDelay = `${i / 10}s`;
+    HEXAGON.style.animationDelay = `${i / 25}s`;
     HEXFIELD.appendChild(HEXAGON_WRAP);
   }
 };

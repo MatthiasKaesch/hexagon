@@ -4,7 +4,6 @@ const INPUTS = HEX_CONTROLS.querySelectorAll("input");
 
 const toggleButton = document.querySelector("#controls-toggle");
 const hexSize = document.querySelector("#hex_size");
-const hoverSize = document.querySelector("#hover_size");
 const glowStrength = document.querySelector("#glow_strength");
 
 const toggleHexControls = () => {
@@ -35,14 +34,8 @@ function setBubble(VALUE, slider) {
 hexSize.addEventListener("input", (e) => {
   setBubble(hexSize, e.target);
   setHexSize(hexSize.value);
-  setHexfieldWidth();
   LAYOUT_HEXFIELD();
 });
-
-/* hoverSize.addEventListener("input", (e) => {
-  setBubble(hoverSize, e.target);
-  setHoverSize(hoverSize.value);
-}); */
 
 glowStrength.addEventListener("input", (e) => {
   setBubble(glowStrength, e.target);

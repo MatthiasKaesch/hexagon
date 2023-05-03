@@ -5,10 +5,10 @@ const LAYOUT_HEXFIELD = () => {
   const hexfieldPadding = 16;
   const hexMargin = 8;
   const hexWidth = parseInt(hexSize.value) + hexMargin * 2;
-  const hexHeight = hexWidth * 1.15;
-  const hexfieldContainerWidth = document.querySelectorAll(".wrapper")[0].clientWidth;
+  const hexHeight = hexWidth * 1.1547;
+  const hexFieldWrapperWidth = document.querySelector(".wrapper").clientWidth - 32;
   const amount = Math.floor(
-    parseInt(hexfieldContainerWidth - hexfieldPadding * 7 - 40) / parseInt(hexWidth)
+    parseInt(hexFieldWrapperWidth - hexfieldPadding * 8) / parseInt(hexWidth)
   );
 
   setHexfieldWidth(amount, hexWidth, hexfieldPadding);
@@ -16,12 +16,16 @@ const LAYOUT_HEXFIELD = () => {
 };
 
 const setHexfieldWidth = (amount, hexWidth, hexfieldPadding) => {
+  const hexHeight = hexWidth * 1.1547;
   const paddingSides = hexfieldPadding * 3.5;
   const paddingTop = hexfieldPadding * 4;
+  const borderWidth = 8;
+  const maxWidth = amount * hexWidth + paddingSides + paddingSides;
 
-  HEXFIELD.style.padding = `${paddingTop}px ${paddingSides}px 0px`;
-  HEXFIELD.style.width = `${amount * hexWidth + paddingSides + paddingSides}px`;
-  HEXFIELD.parentNode.style.width = `${amount * hexWidth + paddingSides + paddingSides + 32}px`;
+  HEXFIELD.style.padding = `${paddingTop}px ${paddingSides}px ${hexHeight * 1.25}px`;
+  HEXFIELD.style.width = `${maxWidth}px`;
+
+  HEXFIELD_BORDERS[0].style.width = `${maxWidth + borderWidth * 4}px`;
 };
 
 const setBorderClipPathes = (hexH, hfP, topL, hfW, percentage, values_R, values_B, values_L) => {
@@ -33,16 +37,16 @@ const setBorderClipPathes = (hexH, hfP, topL, hfW, percentage, values_R, values_
 
 const generateHexfieldFrame = (amount, hexWidth, hexMargin, hexHeight, hexfieldPadding) => {
   //hexFieldWidth
-  const hfW = amount * hexWidth + hexfieldPadding * 7;
+  const hfW = Math.round(amount * hexWidth + hexfieldPadding * 7);
   //hexFieldPadding
-  const hfP = hexfieldPadding * 3.5;
+  const hfP = Math.round(hexfieldPadding * 3.5);
 
-  const hexW = hexWidth / 2;
-  const hexH = hexHeight / 4;
+  const hexW = Math.round(hexWidth / 2);
+  const hexH = Math.round(hexHeight / 3.9);
 
   const topL = hexW + hfP;
 
-  // Top, Right, Bottom, Left => Clip Path points
+  // Top, Right, Bottom, Left => Clip Path default points
   const values_T = [`0 ${hexH + hfP / 2}px, ${topL / (hfW / 100)}% 0`];
   const values_R = [`100% ${hexH + hfP / 2}px`];
   const values_B = ["100% 100%", "0% 100%"];
