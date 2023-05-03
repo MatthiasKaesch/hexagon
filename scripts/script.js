@@ -23,19 +23,26 @@ const createHexagons = (JSON) => {
     HEXAGON.children[1].style.backgroundImage = `url("${JSON[i].url}")`;
     HEXAGON.children[0].innerText = JSON[i].name;
 
-    applyHoverBorderColor(HEXAGON);
+    applyTeamColor(HEXAGON);
     HEXAGON.style.animationDelay = `${i / 10}s`;
     HEXFIELD.appendChild(HEXAGON_WRAP);
   }
 };
 
-const applyHoverBorderColor = (hex) => {
-  hex.addEventListener("mouseover", () => {
-    hex.style.color = hex.getAttribute("data-color");
+const applyTeamColor = (hexagon) => {
+  const teamName = hexagon.children[0];
+  const teamColor = hexagon.getAttribute("data-color");
+
+  teamName.style.boxShadow = `4px 4px 10px ${teamColor}`;
+
+  hexagon.addEventListener("mouseover", () => {
+    hexagon.style.color = teamColor;
+    teamName.style.color = teamColor;
   });
 
-  hex.addEventListener("mouseleave", () => {
-    hex.style.color = null;
+  hexagon.addEventListener("mouseleave", () => {
+    hexagon.style.color = null;
+    teamName.style.color = null;
   });
 };
 
