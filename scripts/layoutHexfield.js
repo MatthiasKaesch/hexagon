@@ -29,6 +29,7 @@ const setHexfieldWidth = (amount, hexWidth, hexfieldPadding, borderThickness) =>
   HEXFIELD.style.width = `${maxWidth}px`;
 
   HEXFIELD_BORDERS[0].style.width = `${maxWidth + borderThickness * 4}px`;
+  HEXFIELD.style.height = "auto";
   HEXFIELD.style.height = `${HEXFIELD.scrollHeight}px`;
 };
 
@@ -59,9 +60,20 @@ const generateHexfieldFrame = (amount, hexWidth, hexMargin, hexHeight, hexfieldP
   let offset = hfP + hexWidth;
 
   for (let i = 1; i < amount; i++) {
+    const sideHexCutOffVertical = 20;
+    const sideHexCutOffHorizontal = sideHexCutOffVertical / 1.5;
     const percentage = (offset + hexWidth / 2) / (hfW / 100);
-    const percentageOffset = offset / (hfW / 100);
-    values_T.push(`${percentageOffset}% ${hexH - (hexMargin - hexMargin / 1.15)}px`);
+    const percentageOffsetLeft = (offset - sideHexCutOffVertical) / (hfW / 100);
+    const percentageOffsetRight = (offset + sideHexCutOffVertical) / (hfW / 100);
+
+    values_T.push(
+      `${percentageOffsetLeft}%
+       ${hexH - (hexMargin - hexMargin / 1.5) - sideHexCutOffHorizontal}px`
+    );
+    values_T.push(
+      `${percentageOffsetRight}%
+       ${hexH - (hexMargin - hexMargin / 1.5) - sideHexCutOffHorizontal}px`
+    );
     values_T.push(`${percentage}% 0px`);
 
     if (i + 1 === amount) {
