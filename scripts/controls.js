@@ -4,6 +4,8 @@ const INPUTS = HEX_CONTROLS.querySelectorAll("input");
 
 const toggleButton = document.querySelector("#controls-toggle");
 const hexSize = document.querySelector("#hex_size");
+const borderWidth = document.querySelector("#border_width");
+const hexGap = document.querySelector("#hex_margin");
 const glowStrength = document.querySelector("#glow_strength");
 
 const toggleHexControls = () => {
@@ -17,8 +19,8 @@ const setHexSize = (size) => {
   ROOT.style.setProperty("--hexWidth", `${size}Px`);
 };
 
-const setHoverSize = (size) => {
-  ROOT.style.setProperty("--hoverScale", `${size / 10}`);
+const setHexGap = (size) => {
+  ROOT.style.setProperty("--hexMargin", `${size}Px`);
 };
 
 const setGlowStrength = (strength) => {
@@ -34,6 +36,17 @@ function setBubble(VALUE, slider) {
 hexSize.addEventListener("input", (e) => {
   setBubble(hexSize, e.target);
   setHexSize(hexSize.value);
+  LAYOUT_HEXFIELD();
+});
+
+borderWidth.addEventListener("input", (e) => {
+  setBubble(borderWidth, e.target);
+  LAYOUT_HEXFIELD();
+});
+
+hexGap.addEventListener("input", (e) => {
+  setBubble(hexGap, e.target);
+  setHexGap(hexGap.value);
   LAYOUT_HEXFIELD();
 });
 

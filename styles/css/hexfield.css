@@ -5,10 +5,8 @@
   --f: calc(1.732 * var(--hexWidth) + 2 * var(--hexMargin) - 1px); }
   .teams-gallery-frame-1 {
     margin: 0 auto;
-    padding: 8px;
     background-color: var(--clr-grey-medium); }
   .teams-gallery-frame-2 {
-    padding: 8px;
     background-color: var(--clr-grey-dark); }
   .teams-gallery-frame-3 {
     display: flex;
