@@ -17,18 +17,19 @@ const LAYOUT_HEXFIELD = () => {
 };
 
 const setHexfieldWidth = (amount, hexWidth, hexfieldPadding, borderThickness) => {
-  const hexHeight = hexWidth * 1.1547;
+  /* const hexHeight = hexWidth * 1.1547; */
   const paddingSides = hexfieldPadding * 3.5;
   const paddingTop = hexfieldPadding * 4;
 
-  const maxWidth = amount * hexWidth + paddingSides + paddingSides;
+  const maxWidth = amount * hexWidth + paddingSides * 2;
   HEXFIELD_BORDERS[0].style.padding = `${borderThickness}px`;
   HEXFIELD_BORDERS[1].style.padding = `${borderThickness}px`;
 
-  HEXFIELD.style.padding = `${paddingTop}px ${paddingSides}px ${hexHeight * 1.25}px`;
+  HEXFIELD.style.padding = `${paddingTop}px ${paddingSides}px ${paddingSides}px`;
   HEXFIELD.style.width = `${maxWidth}px`;
 
   HEXFIELD_BORDERS[0].style.width = `${maxWidth + borderThickness * 4}px`;
+  HEXFIELD.style.height = `${HEXFIELD.scrollHeight}px`;
 };
 
 const setBorderClipPathes = (hexH, hfP, topL, hfW, percentage, values_R, values_B, values_L) => {
