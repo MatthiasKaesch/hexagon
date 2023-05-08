@@ -6,6 +6,7 @@ const toggleButton = document.querySelector("#controls-toggle");
 const hexSize = document.querySelector("#hex_size");
 const borderWidth = document.querySelector("#border_width");
 const hexGap = document.querySelector("#hex_margin");
+const hexCutOff = document.querySelector("#hex_cutoff");
 const glowStrength = document.querySelector("#glow_strength");
 
 const toggleHexControls = () => {
@@ -47,6 +48,11 @@ borderWidth.addEventListener("input", (e) => {
 hexGap.addEventListener("input", (e) => {
   setBubble(hexGap, e.target);
   setHexGap(hexGap.value);
+  LAYOUT_HEXFIELD();
+});
+
+hexCutOff.addEventListener("input", (e) => {
+  setBubble(hexCutOff, e.target);
   LAYOUT_HEXFIELD();
 });
 

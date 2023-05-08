@@ -6,18 +6,16 @@ const LAYOUT_HEXFIELD = () => {
   const hexMargin = parseInt(hexGap.value);
   const hexWidth = parseInt(hexSize.value) + hexMargin * 2;
   const borderThickness = parseInt(borderWidth.value);
-  const hexHeight = hexWidth * 1.1547;
   const hexFieldWrapperWidth = document.querySelector(".wrapper").clientWidth - 32;
   const amount = Math.floor(
     parseInt(hexFieldWrapperWidth - hexfieldPadding * 8) / parseInt(hexWidth)
   );
 
   setHexfieldWidth(amount, hexWidth, hexfieldPadding, borderThickness);
-  generateHexfieldFrame(amount, hexWidth, hexMargin, hexHeight, hexfieldPadding);
+  generateHexfieldFrame(amount, hexWidth, hexMargin, hexfieldPadding);
 };
 
 const setHexfieldWidth = (amount, hexWidth, hexfieldPadding, borderThickness) => {
-  /* const hexHeight = hexWidth * 1.1547; */
   const paddingSides = hexfieldPadding * 3.5;
   const paddingTop = hexfieldPadding * 4;
 
@@ -40,7 +38,8 @@ const setBorderClipPathes = (hexH, hfP, topL, hfW, percentage, values_R, values_
   HEXFIELD_BORDERS.forEach((border) => (border.style.clipPath = borderPath));
 };
 
-const generateHexfieldFrame = (amount, hexWidth, hexMargin, hexHeight, hexfieldPadding) => {
+const generateHexfieldFrame = (amount, hexWidth, hexMargin, hexfieldPadding) => {
+  const hexHeight = hexWidth * 1.1547;
   //hexFieldWidth
   const hfW = Math.round(amount * hexWidth + hexfieldPadding * 7);
   //hexFieldPadding
@@ -60,7 +59,7 @@ const generateHexfieldFrame = (amount, hexWidth, hexMargin, hexHeight, hexfieldP
   let offset = hfP + hexWidth;
 
   for (let i = 1; i < amount; i++) {
-    const sideHexCutOffVertical = 20;
+    const sideHexCutOffVertical = parseInt(hexCutOff.value);
     const sideHexCutOffHorizontal = sideHexCutOffVertical / 1.5;
     const percentage = (offset + hexWidth / 2) / (hfW / 100);
     const percentageOffsetLeft = (offset - sideHexCutOffVertical) / (hfW / 100);
