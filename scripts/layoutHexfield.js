@@ -6,9 +6,9 @@ const LAYOUT_HEXFIELD = () => {
   const hexMargin = parseInt(hexGap.value);
   const hexWidth = parseInt(hexSize.value) + hexMargin * 2;
   const borderThickness = parseInt(borderWidth.value);
-  const hexFieldWrapperWidth = document.querySelector(".wrapper").clientWidth - 32;
+  const wrapperWidth = document.querySelector(".wrapper").clientWidth - 32;
   const amount = Math.floor(
-    parseInt(hexFieldWrapperWidth - hexfieldPadding * 8) / parseInt(hexWidth)
+    parseInt(wrapperWidth - 168 - hexfieldPadding * 8) / parseInt(hexWidth)
   );
 
   setHexfieldWidth(amount, hexWidth, hexfieldPadding, borderThickness);
@@ -25,6 +25,8 @@ const setHexfieldWidth = (amount, hexWidth, hexfieldPadding, borderThickness) =>
 
   HEXFIELD.style.padding = `${paddingTop}px ${paddingSides}px ${paddingSides}px`;
   HEXFIELD.style.width = `${maxWidth}px`;
+  console.log(borderThickness);
+  console.log(maxWidth);
 
   HEXFIELD_BORDERS[0].style.width = `${maxWidth + borderThickness * 4}px`;
   HEXFIELD.style.height = "auto";
@@ -35,6 +37,7 @@ const setBorderClipPathes = (hexH, hfP, topL, hfW, percentage, values_R, values_
   const borderTopValues = [`0 ${hexH + hfP / 2}px, ${topL / (hfW / 100)}% 0`];
   borderTopValues.push(`${percentage}% 0px`);
   const borderPath = `polygon(${borderTopValues.toString()},${values_R.toString()},${values_B.toString()},${values_L.toString()})`;
+
   HEXFIELD_BORDERS.forEach((border) => (border.style.clipPath = borderPath));
 };
 
@@ -67,11 +70,11 @@ const generateHexfieldFrame = (amount, hexWidth, hexMargin, hexfieldPadding) => 
 
     values_T.push(
       `${percentageOffsetLeft}%
-       ${hexH - (hexMargin - hexMargin / 1.5) - sideHexCutOffHorizontal}px`
+         ${hexH - (hexMargin - hexMargin / 1.5) - sideHexCutOffHorizontal}px`
     );
     values_T.push(
       `${percentageOffsetRight}%
-       ${hexH - (hexMargin - hexMargin / 1.5) - sideHexCutOffHorizontal}px`
+         ${hexH - (hexMargin - hexMargin / 1.5) - sideHexCutOffHorizontal}px`
     );
     values_T.push(`${percentage}% 0px`);
 
