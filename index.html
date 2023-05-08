@@ -60,7 +60,6 @@
 
         </ul>
       </nav>
-      <h1 class="header-headline">Teams Gallery</h1>
     </header>
 
     <div class="controls hidden" id="hex-controls">
@@ -79,6 +78,10 @@
         <input autocomplete="off" type="range" min="4" max="32" value="8" class="controls-slides-slider" name="hex_margin" id="hex_margin">
         <output class="controls-slides-slider-bubble">8</output>
 
+        <label class="controls-slides-label" for="hex_cutoff">Border Hexagon Cutoff</label>
+        <input autocomplete="off" type="range" min="0" max="64" value="20" class="controls-slides-slider" name="hex_cutoff" id="hex_cutoff">
+        <output class="controls-slides-slider-bubble">20</output>
+
         <label class="controls-slides-label" for="glow_strength">Glow Intensity</label>
         <input autocomplete="off" type="range" min="0" max="150" value="20" class="controls-slides-slider" name="glow_strength"
           id="glow_strength">
@@ -88,18 +91,22 @@
     </div>
 
     <div class="teams-gallery">
-      <div class="controls-hex" onclick="toggleHexControls()">
-        <div class="controls-hex-wrapper">
-          <div class="controls-hex-button">
-            <p>&#8703;</p>
+
+      <div class="grid-container">
+        <h1 class="headline">Teams Gallery</h1>
+        <div class="controls-hex" onclick="toggleHexControls()">
+          <div class="controls-hex-wrapper">
+            <div class="controls-hex-button">
+              <p>&#8703;</p>
+            </div>
           </div>
         </div>
-      </div>
-      <div class="border teams-gallery-frame-1">
-        <div class="border teams-gallery-frame-2">
-          <div class="border teams-gallery-frame-3">
-            <div class="hexfield">
-              <div class="hexfield-spinner"></div>
+        <div class="border teams-gallery-frame-1">
+          <div class="border teams-gallery-frame-2">
+            <div class="border teams-gallery-frame-3">
+              <div class="hexfield">
+                <div class="hexfield-spinner"></div>
+              </div>
             </div>
           </div>
         </div>
