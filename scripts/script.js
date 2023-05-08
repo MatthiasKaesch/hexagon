@@ -11,6 +11,7 @@ fetch("./teams.json")
 const createHexagons = (JSON) => {
   HEXFIELD.innerHTML = "";
   for (let i in JSON) {
+    if (!JSON[i].url || !JSON[i].name) continue;
     const HEXAGON_WRAP = HEX_TEMPLATE.content.cloneNode(true);
     const HEXAGON = HEXAGON_WRAP.children[0];
 
