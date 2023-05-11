@@ -2,7 +2,7 @@ const HEXFIELD = document.querySelector(".hexfield");
 const HEXFIELD_BORDERS = Array.from(document.querySelectorAll(".border"));
 
 const LAYOUT_HEXFIELD = () => {
-  const hexfieldPadding = parseInt(hexSize.value) / 12;
+  const hexfieldPadding = Math.round(parseInt(hexSize.value) / 12);
   const hexMargin = parseInt(hexGap.value);
   const hexWidth = parseInt(hexSize.value) + hexMargin * 2;
   const borderThickness = parseInt(borderWidth.value);
@@ -40,7 +40,7 @@ const setBorderClipPathes = (hexH, hfP, topL, hfW, percentage, values_R, values_
 };
 
 const generateHexfieldFrame = (amount, hexWidth, hexMargin, hexfieldPadding) => {
-  const hexHeight = hexWidth * 1.1547;
+  const hexHeight = Math.round(hexWidth * 1.1547);
   //hexFieldWidth
   const hfW = Math.round(amount * hexWidth + hexfieldPadding * 7);
   //hexFieldPadding
@@ -52,8 +52,8 @@ const generateHexfieldFrame = (amount, hexWidth, hexMargin, hexfieldPadding) => 
   const topL = hexW + hfP;
 
   // Top, Right, Bottom, Left => Clip Path default points
-  const values_T = [`0 ${hexH + hfP / 2}px, ${topL / (hfW / 100)}% 0`];
-  const values_R = [`100% ${hexH + hfP / 2}px`];
+  const values_T = [`0 ${Math.round(hexH + hfP / 2)}px, ${(topL / (hfW / 100)).toFixed(3)}% 0`];
+  const values_R = [`100% ${Math.round(hexH + hfP / 2)}px`];
   const values_B = ["100% 100%", "0% 100%"];
   const values_L = [`0% ${hexH}px`];
 
@@ -66,15 +66,12 @@ const generateHexfieldFrame = (amount, hexWidth, hexMargin, hexfieldPadding) => 
     const percentageOffsetLeft = (offset - sideHexCutOffVertical) / (hfW / 100);
     const percentageOffsetRight = (offset + sideHexCutOffVertical) / (hfW / 100);
 
-    values_T.push(
-      `${percentageOffsetLeft}%
-         ${hexH - (hexMargin - hexMargin / 1.5) - sideHexCutOffHorizontal}px`
-    );
-    values_T.push(
-      `${percentageOffsetRight}%
-         ${hexH - (hexMargin - hexMargin / 1.5) - sideHexCutOffHorizontal}px`
-    );
-    values_T.push(`${percentage}% 0px`);
+    const borderHexBottomLeftY = hexH - (hexMargin - hexMargin / 1.5) - sideHexCutOffHorizontal;
+    const borderHexBottomLeft = `${+percentageOffsetLeft.toFixed(3)}% ${borderHexBottomLeftY}px`;
+    const borderHexBottomRight = `${+percentageOffsetRight.toFixed(3)}% ${borderHexBottomLeftY}px`;
+    const borderHexEnd = `${+percentage.toFixed(3)}% 0px`;
+
+    values_T.push(borderHexBottomLeft, borderHexBottomRight, borderHexEnd);
 
     if (i + 1 === amount) {
       setBorderClipPathes(hexH, hfP, topL, hfW, percentage, values_R, values_B, values_L);
@@ -85,4 +82,20 @@ const generateHexfieldFrame = (amount, hexWidth, hexMargin, hexfieldPadding) => 
   const path = `polygon(${values_T.toString()},${values_R.toString()},${values_B.toString()},${values_L.toString()})`;
 
   HEXFIELD.style.clipPath = path;
+
+  const consoleLogPath = () => {
+    const pathToLog = [
+      "------TOP-----",
+      ...values_T,
+      "------RIGHT----- ",
+      ...values_R,
+      "------BOTTOM-----",
+      ...values_B,
+      "------LEFT-----",
+      ...values_L,
+    ];
+    console.table(pathToLog);
+  };
+
+  // consoleLogPath();
 };
