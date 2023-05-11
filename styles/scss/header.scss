@@ -1,7 +1,6 @@
 .header {
-  padding-bottom: 1rem;
-  background-color: rgba(255, 255, 255, 0.035);
-  box-shadow: 0px 0px 8px var(black);
+  margin-bottom: 1rem;
+
   background-image: linear-gradient(
     to right,
     rgba(0, 0, 0, 1),
@@ -16,9 +15,8 @@
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     list-style: none;
-    padding: 0 0 1rem;
     margin: 0;
-    background-image: linear-gradient(rgba(60, 189, 247, 0.4), rgba(60, 189, 247, 0));
+    padding-left: 0;
 
     &-item {
       display: grid;
@@ -32,18 +30,23 @@
       line-height: 1.5;
       --width: calc(100% - 24px);
 
+      &:not(:first-child) {
+        margin-left: 4px;
+        --width: calc(100% - 28px);
+      }
+
       &-active {
         .navbar-list-item {
           &-link {
             background-color: transparent;
             background-image: linear-gradient(
                 to right,
-
                 rgba(245, 70, 88, 0.3) 20%,
                 rgba(245, 70, 87, 0.1) 80%
               ),
               linear-gradient(45deg, black 25%, transparent 25%, transparent 75%, black 75%, black),
               linear-gradient(to bottom, rgb(8, 8, 8), rgb(32, 32, 32));
+            border-bottom: 2px solid rgba(219, 20, 40, 0.25);
           }
 
           &-corner {
@@ -79,6 +82,10 @@
         .navbar-list-item-link:hover {
           color: var(--clr-secondary);
         }
+
+        .navbar-list-item-corner {
+          border-bottom: 2px solid rgba(219, 20, 40, 0.25);
+        }
       }
 
       &-link {
@@ -90,12 +97,14 @@
         background-color: var(--clr-deco-dark);
         padding-left: 12px;
         overflow: visible;
+        border-bottom: 2px solid rgba(60, 189, 247, 0.25);
       }
 
       &-corner {
         grid-column: 3;
         background-color: var(--clr-deco-dark);
         clip-path: polygon(100% 0px, 100% 16px, 16px 100%, 0px 100%, 0px 0px);
+        border-bottom: 2px solid rgba(60, 189, 247, 0.25);
       }
     }
   }
