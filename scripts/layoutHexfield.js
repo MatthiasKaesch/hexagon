@@ -2,7 +2,7 @@ const HEXFIELD = document.querySelector(".hexfield");
 const HEXFIELD_BORDERS = Array.from(document.querySelectorAll(".border"));
 
 const LAYOUT_HEXFIELD = () => {
-  const hexfieldPadding = 16;
+  const hexfieldPadding = parseInt(hexSize.value) / 12;
   const hexMargin = parseInt(hexGap.value);
   const hexWidth = parseInt(hexSize.value) + hexMargin * 2;
   const borderThickness = parseInt(borderWidth.value);
@@ -24,7 +24,7 @@ const setHexfieldWidth = (amount, hexWidth, hexfieldPadding, borderThickness) =>
   HEXFIELD_BORDERS[1].style.padding = `${borderThickness}px`;
 
   HEXFIELD.style.padding = `${paddingTop}px ${paddingSides}px ${paddingSides}px`;
-  HEXFIELD.style.width = `${maxWidth}px`;
+  HEXFIELD.style.width = `${Math.ceil(maxWidth)}px`;
 
   HEXFIELD_BORDERS[0].style.width = `${maxWidth + borderThickness * 4}px`;
   HEXFIELD.style.height = "auto";
