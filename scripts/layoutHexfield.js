@@ -12,21 +12,19 @@ const LAYOUT_HEXFIELD = () => {
   );
 
   setHexfieldWidth(amount, hexWidth, hexfieldPadding, borderThickness);
+  setHexFieldHeight();
   generateHexfieldFrame(amount, hexWidth, hexMargin, hexfieldPadding);
 };
 
 const setHexfieldWidth = (amount, hexWidth, hexfieldPadding, borderThickness) => {
-  const paddingSides = hexfieldPadding * 3.5;
-  const paddingTop = hexfieldPadding * 4;
+  const padding = hexfieldPadding * 3.5;
+  const maxWidth = amount * hexWidth + padding * 2;
 
-  const maxWidth = amount * hexWidth + paddingSides * 2;
-  HEXFIELD_BORDERS[0].style.padding = `${borderThickness}px`;
-  HEXFIELD_BORDERS[1].style.padding = `${borderThickness}px`;
-
-  HEXFIELD.style.padding = `${paddingTop}px ${paddingSides}px ${paddingSides}px`;
   HEXFIELD.style.width = `${Math.ceil(maxWidth)}px`;
-
   HEXFIELD_BORDERS[0].style.width = `${maxWidth + borderThickness * 4}px`;
+};
+
+const setHexFieldHeight = () => {
   HEXFIELD.style.height = "auto";
   HEXFIELD.style.height = `${HEXFIELD.scrollHeight}px`;
 };
@@ -78,6 +76,22 @@ const generateHexfieldFrame = (amount, hexWidth, hexMargin, hexfieldPadding) => 
     }
     offset += hexWidth;
   }
+
+  /*
+
+  const fullWidth = HEXFIELD.clientWidth;
+  const borderSideOffset = hexWidth / 2 + hexfieldPadding;
+  const initalHorizontalOffset = hexfieldPadding * 4;
+  const currentHexHeight = document.querySelector(".hexagon-wrap").clientHeight;
+
+  values_R.push(`100% ${initalHorizontalOffset + currentHexHeight + hexMargin}px`);
+  values_R.push(`${fullWidth - borderSideOffset + hexfieldPadding}px
+  ${initalHorizontalOffset + currentHexHeight + hexfieldPadding * 4 - hexMargin / 2}px`);
+  values_R.push(`${fullWidth - borderSideOffset + hexfieldPadding}px
+  ${hexHeight + hexfieldPadding * 4 + hexMargin + hexHeight / 2 / 1.147}px`);
+  values_R.push(`100% ${hexHeight + hexfieldPadding * 4 + 4 + hexHeight}px`);
+
+  */
 
   const path = `polygon(${values_T.toString()},${values_R.toString()},${values_B.toString()},${values_L.toString()})`;
 

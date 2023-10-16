@@ -62,9 +62,11 @@
     grid-column: 2;
     grid-row: 2 / -1;
     font-size: 5rem;
-    background-color: var(--clr-grey-medium); }
+    background-color: var(--clr-grey-medium);
+    padding: var(--borderThickness); }
   .teams-gallery-frame-2 {
-    background-color: var(--clr-grey-dark); }
+    background-color: var(--clr-grey-dark);
+    padding: var(--borderThickness); }
   .teams-gallery-frame-3 {
     display: flex;
     padding-top: 0.5rem;
@@ -73,10 +75,11 @@
 
 .hexfield {
   box-sizing: border-box;
+  margin: 0 auto;
+  padding: var(--hexFieldPadding);
   font-size: 0;
   background-color: var(--clr-deco-dark);
-  background-image: linear-gradient(to right, #0c0c0c, rgba(12, 12, 12, 0) 5%, rgba(12, 12, 12, 0) 95%, #0c0c0c);
-  margin: 0 auto; }
+  background-image: linear-gradient(to right, #0c0c0c, rgba(12, 12, 12, 0) 5%, rgba(12, 12, 12, 0) 95%, #0c0c0c); }
   .hexfield-spinner {
     display: block;
     width: 128px;

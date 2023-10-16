@@ -17,15 +17,29 @@ const toggleHexControls = () => {
 };
 
 const setHexSize = (size) => {
-  ROOT.style.setProperty("--hexWidth", `${size}Px`);
+  ROOT.style.setProperty("--hexWidth", `${size}px`);
 };
 
 const setHexGap = (size) => {
-  ROOT.style.setProperty("--hexMargin", `${size}Px`);
+  ROOT.style.setProperty("--hexMargin", `${size}px`);
+};
+
+const setBorderWidth = (width) => {
+  ROOT.style.setProperty("--borderThickness", `${width}px`);
 };
 
 const setGlowStrength = (strength) => {
   ROOT.style.setProperty("--glowIntensity", `${strength}px`);
+};
+
+const setHexFieldPadding = (hexSize) => {
+  const size = Math.round(parseInt(hexSize) / 12);
+  const paddingSmall = Math.floor(size * 3.5);
+  const paddingLarge = size * 4;
+  ROOT.style.setProperty(
+    "--hexFieldPadding",
+    `${paddingLarge}px ${paddingSmall}px ${paddingSmall}px`
+  );
 };
 
 function setBubble(VALUE, slider) {
@@ -37,17 +51,19 @@ function setBubble(VALUE, slider) {
 hexSize.addEventListener("input", (e) => {
   setBubble(hexSize, e.target);
   setHexSize(hexSize.value);
-  LAYOUT_HEXFIELD();
-});
-
-borderWidth.addEventListener("input", (e) => {
-  setBubble(borderWidth, e.target);
+  setHexFieldPadding(hexSize.value);
   LAYOUT_HEXFIELD();
 });
 
 hexGap.addEventListener("input", (e) => {
   setBubble(hexGap, e.target);
   setHexGap(hexGap.value);
+  LAYOUT_HEXFIELD();
+});
+
+borderWidth.addEventListener("input", (e) => {
+  setBubble(borderWidth, e.target);
+  setBorderWidth(borderWidth.value);
   LAYOUT_HEXFIELD();
 });
 

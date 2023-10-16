@@ -25,4 +25,6 @@
   --hexWidth: 184px;
   --hexMargin: 8px;
   --hoverScale: 1.5;
-  --glowIntensity: 20px; }
+  --glowIntensity: 20px;
+  --borderThickness: 8px;
+  --hexFieldPadding: 60px 52px 52px; }
