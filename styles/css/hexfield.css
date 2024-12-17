@@ -132,7 +132,7 @@
     font-size: calc((var(--hexWidth) + (2 * var(--hexMargin))) / 6);
     font-family: var(--fts-text);
     color: transparent;
-    background-color: rgba(69, 69, 69, 0.88);
+    background-color: rgba(13, 13, 13, 0.88);
     overflow: visible;
     position: absolute;
     white-space: nowrap;

@@ -42,37 +42,37 @@ const setHexFieldPadding = (hexSize) => {
   );
 };
 
-function setBubble(VALUE, slider) {
+function setDisplayedValue(VALUE, slider) {
   const bubble = slider.nextElementSibling;
   const val = VALUE.value;
   bubble.innerHTML = val;
 }
 
 hexSize.addEventListener("input", (e) => {
-  setBubble(hexSize, e.target);
+  setDisplayedValue(hexSize, e.target);
   setHexSize(hexSize.value);
   setHexFieldPadding(hexSize.value);
   LAYOUT_HEXFIELD();
 });
 
 hexGap.addEventListener("input", (e) => {
-  setBubble(hexGap, e.target);
+  setDisplayedValue(hexGap, e.target);
   setHexGap(hexGap.value);
   LAYOUT_HEXFIELD();
 });
 
 borderWidth.addEventListener("input", (e) => {
-  setBubble(borderWidth, e.target);
+  setDisplayedValue(borderWidth, e.target);
   setBorderWidth(borderWidth.value);
   LAYOUT_HEXFIELD();
 });
 
 hexCutOff.addEventListener("input", (e) => {
-  setBubble(hexCutOff, e.target);
+  setDisplayedValue(hexCutOff, e.target);
   LAYOUT_HEXFIELD();
 });
 
 glowStrength.addEventListener("input", (e) => {
-  setBubble(glowStrength, e.target);
+  setDisplayedValue(glowStrength, e.target);
   setGlowStrength(glowStrength.value);
 });
