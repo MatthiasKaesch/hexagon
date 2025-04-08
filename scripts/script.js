@@ -25,6 +25,7 @@ const createHexagons = (JSON) => {
     HEXAGON.children[0].innerText = JSON[i].name;
 
     applyTeamColor(HEXAGON);
+    addRandomInitalOrientation(HEXAGON)
     HEXAGON.style.animationDelay = `${i / 25}s`;
     HEXFIELD.appendChild(HEXAGON_WRAP);
   }
@@ -46,6 +47,36 @@ const applyTeamColor = (hexagon) => {
     teamName.style.color = null;
   });
 };
+
+const addRandomInitalOrientation = (hexagon) => {
+  const axes = [
+  [1, 1, 0],
+  [-1, 1, 0],
+  [1, -1, 0],
+  [-1, -1, 0],
+  [0.5, 1, 0],
+  [1, 0.5, 0],
+  [-0.5, 1, 0],
+  [1, -0.5, 0],
+  [0.4, 1, 0],
+  [1, 0.4, 0],
+  [0.3, 1, 0],
+  [1, 0.3, 0],
+  [0.2, 1, 0],
+  [1, 0.2, 0],
+  [-0.2, 1, 0],
+  [1, -0.2, 0],
+  [-0.3, 1, 0],
+  [1, -0.3, 0],
+  [-0.4, 1, 0],
+  [1, -0.4, 0],
+  ];
+
+  const randomAxis = axes[Math.floor(Math.random() * axes.length)];
+  const [rx, ry, rz] = randomAxis;
+  hexagon.style.transform = `rotate3d(${rx}, ${ry},${rz}, -90deg)`;
+  
+}
 
 NAVBAR.addEventListener("click", (e) => {
   let clickedElement = e.target.parentNode;

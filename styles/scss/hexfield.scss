@@ -171,7 +171,6 @@
   margin: var(--hexMargin);
   margin-bottom: calc(var(--hexMargin) - var(--hexWidth) * 0.2886);
   z-index: 1;
-  transform: rotate3d(1, 1, 0, 90deg);
 
   transition: z-index, color 1s ease;
   animation: 0.85s ease-out forwards rotateHex;
