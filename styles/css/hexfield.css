@@ -2,76 +2,90 @@
 .teams-gallery {
   --hexCalculation: 1.1547;
   --heigth: calc(var(--hexWidth) * var(--hexCalculation));
-  --f: calc(1.732 * var(--hexWidth) + 2 * var(--hexMargin) - 1px); }
-  .teams-gallery .grid-container {
-    display: grid;
-    grid-template-columns: 84px min-content 84px;
-    grid-template-rows: auto 88px 1fr;
-    width: fit-content;
-    margin: 0 auto; }
-    .teams-gallery .grid-container:before, .teams-gallery .grid-container:after {
-      grid-row: 3;
-      width: 100%;
-      height: calc(100% - 16px);
-      content: "";
-      border-top: 8px solid var(--clr-grey-medium);
-      border-bottom: 8px solid var(--clr-grey-medium);
-      background: linear-gradient(var(--clr-grey-medium), black 3%); }
-    .teams-gallery .grid-container:before {
-      grid-column: 1; }
-    .teams-gallery .grid-container:after {
-      grid-column: 3; }
-    .teams-gallery .grid-container .headline {
-      grid-column: 2;
-      font-size: 3rem;
-      line-height: 1.75;
-      font-family: var(--fts-headline);
-      width: fit-content;
-      margin: 0 auto 0.5rem;
-      background-image: linear-gradient(90deg, var(--clr-primary), var(--clr-secondary));
-      background-clip: text;
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      filter: drop-shadow(2px 2px black); }
-    .teams-gallery .grid-container .controls-hex {
-      cursor: pointer;
-      grid-row: 2; }
-      .teams-gallery .grid-container .controls-hex:hover .controls-hex-wrapper {
-        background-color: var(--clr-secondary); }
-      .teams-gallery .grid-container .controls-hex-wrapper {
-        background-color: var(--clr-primary);
-        width: 50px;
-        height: 60px;
-        margin: 0 auto;
-        padding: 3px;
-        clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%); }
-      .teams-gallery .grid-container .controls-hex-button {
-        width: 100%;
-        height: 100%;
-        color: var(--clr-primary);
-        background-color: var(--clr-deco-dark);
-        border: none;
-        clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%); }
-        .teams-gallery .grid-container .controls-hex-button p {
-          margin: 0;
-          font-size: 2.5rem;
-          user-select: none;
-          color: var(--clr-grey-light);
-          user-select: none; }
-  .teams-gallery-frame-1 {
-    grid-column: 2;
-    grid-row: 2 / -1;
-    font-size: 5rem;
-    background-color: var(--clr-grey-medium);
-    padding: var(--borderThickness); }
-  .teams-gallery-frame-2 {
-    background-color: var(--clr-grey-dark);
-    padding: var(--borderThickness); }
-  .teams-gallery-frame-3 {
-    display: flex;
-    padding-top: 0.5rem;
-    background-color: var(--clr-grey-medium);
-    background-image: linear-gradient(var(--clr-grey-medium) calc(var(--hexMargin) / 40), red, var(--clr-grey-light), var(--clr-grey-medium)); }
+  --f: calc(1.732 * var(--hexWidth) + 2 * var(--hexMargin) - 1px);
+}
+.teams-gallery .grid-container {
+  display: grid;
+  grid-template-columns: 84px min-content 84px;
+  grid-template-rows: auto 88px 1fr;
+  width: fit-content;
+  margin: 0 auto;
+}
+.teams-gallery .grid-container:before, .teams-gallery .grid-container:after {
+  grid-row: 3;
+  width: 100%;
+  height: calc(100% - 16px);
+  content: "";
+  border-top: 8px solid var(--clr-grey-medium);
+  border-bottom: 8px solid var(--clr-grey-medium);
+  background: linear-gradient(var(--clr-grey-medium), black 3%);
+}
+.teams-gallery .grid-container:before {
+  grid-column: 1;
+}
+.teams-gallery .grid-container:after {
+  grid-column: 3;
+}
+.teams-gallery .grid-container .headline {
+  grid-column: 2;
+  font-size: 3rem;
+  line-height: 1.75;
+  font-family: var(--fts-headline);
+  width: fit-content;
+  margin: 0 auto 0.5rem;
+  background-image: linear-gradient(90deg, var(--clr-primary), var(--clr-secondary));
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(2px 2px black);
+}
+.teams-gallery .grid-container .controls-hex {
+  cursor: pointer;
+  grid-row: 2;
+}
+.teams-gallery .grid-container .controls-hex:hover .controls-hex-wrapper {
+  background-color: var(--clr-secondary);
+}
+.teams-gallery .grid-container .controls-hex-wrapper {
+  background-color: var(--clr-primary);
+  width: 50px;
+  height: 60px;
+  margin: 0 auto;
+  padding: 3px;
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+}
+.teams-gallery .grid-container .controls-hex-button {
+  width: 100%;
+  height: 100%;
+  color: var(--clr-primary);
+  background-color: var(--clr-deco-dark);
+  border: none;
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+}
+.teams-gallery .grid-container .controls-hex-button p {
+  margin: 0;
+  font-size: 2.5rem;
+  user-select: none;
+  color: var(--clr-grey-light);
+  user-select: none;
+}
+.teams-gallery-frame-1 {
+  grid-column: 2;
+  grid-row: 2/-1;
+  font-size: 5rem;
+  background-color: var(--clr-grey-medium);
+  padding: var(--borderThickness);
+}
+.teams-gallery-frame-2 {
+  background-color: var(--clr-grey-dark);
+  padding: var(--borderThickness);
+}
+.teams-gallery-frame-3 {
+  display: flex;
+  padding-top: 0.5rem;
+  background-color: var(--clr-grey-medium);
+  background-image: linear-gradient(var(--clr-grey-medium) calc(var(--hexMargin) / 40), red, var(--clr-grey-light), var(--clr-grey-medium));
+}
 
 .hexfield {
   box-sizing: border-box;
@@ -79,37 +93,43 @@
   padding: var(--hexFieldPadding);
   font-size: 0;
   background-color: var(--clr-deco-dark);
-  background-image: linear-gradient(to right, #0c0c0c, rgba(12, 12, 12, 0) 5%, rgba(12, 12, 12, 0) 95%, #0c0c0c); }
-  .hexfield-spinner {
-    display: block;
-    width: 128px;
-    height: 128px;
-    margin: 0 auto; }
-    .hexfield-spinner:after {
-      content: "";
-      display: block;
-      width: 100%;
-      height: 100%;
-      margin-top: 6rem;
-      border-radius: 50%;
-      border: 12px solid var(--clr-primary);
-      border-color: var(--clr-primary) transparent var(--clr-secondary) transparent;
-      animation: Spinner 1.2s linear infinite; }
-
+  background-image: linear-gradient(to right, rgb(12, 12, 12), rgba(12, 12, 12, 0) 5%, rgba(12, 12, 12, 0) 95%, rgb(12, 12, 12));
+}
+.hexfield-spinner {
+  display: block;
+  width: 128px;
+  height: 128px;
+  margin: 0 auto;
+}
+.hexfield-spinner:after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 100%;
+  margin-top: 6rem;
+  border-radius: 50%;
+  border: 12px solid var(--clr-primary);
+  border-color: var(--clr-primary) transparent var(--clr-secondary) transparent;
+  animation: Spinner 1.2s linear infinite;
+}
 @keyframes Spinner {
   0% {
-    transform: rotate(0deg); }
+    transform: rotate(0deg);
+  }
   100% {
-    transform: rotate(360deg); } }
+    transform: rotate(360deg);
+  }
+}
 
 .hexfield::before {
   content: "";
   width: calc(var(--hexWidth) / 2 + var(--hexMargin));
   float: left;
   height: 100%;
-  shape-outside: repeating-linear-gradient(#0000 0 calc(var(--f) - 3px), #000 0 var(--f));
+  shape-outside: repeating-linear-gradient(rgba(0, 0, 0, 0) 0 calc(var(--f) - 3px), #000 0 var(--f));
   /* background-image: repeating-linear-gradient(#f60000 0 calc(var(--f) - 3px), #00ff04 0 var(--f)); */
-  z-index: 100000; }
+  z-index: 100000;
+}
 
 .hexagon-wrap {
   display: inline-block;
@@ -121,37 +141,42 @@
   z-index: 1;
   transform: rotate3d(1, 1, 0, 90deg);
   transition: z-index, color 1s ease;
-  animation: 0.85s ease-out forwards rotateHex; }
-  .hexagon-wrap-teamname {
-    width: max-content;
-    max-width: 0;
-    padding: 0.125rem 0;
-    top: 80%;
-    left: -22.5%;
-    z-index: 10000;
-    font-size: calc((var(--hexWidth) + (2 * var(--hexMargin))) / 6);
-    font-family: var(--fts-text);
-    color: transparent;
-    background-color: rgba(13, 13, 13, 0.88);
-    overflow: visible;
-    position: absolute;
-    white-space: nowrap;
-    transform: skew(-10deg);
-    -webkit-transform: skew(-10deg);
-    -moz-transform: skew(-10deg); }
-  .hexagon-wrap:hover {
-    z-index: 9000; }
-    .hexagon-wrap:hover .hexagon-wrap-teamname {
-      padding: 0 0.5rem;
-      max-width: 300%;
-      color: var(--clr-secondary);
-      transition: max-width 0.5s ease-in, color 0.5s ease-in, padding 0.25s ease-in;
-      transition-delay: 0.175s; }
+  animation: 0.85s ease-out forwards rotateHex;
+}
+.hexagon-wrap-teamname {
+  width: max-content;
+  max-width: 0;
+  padding: 0.125rem 0;
+  top: 80%;
+  left: -22.5%;
+  z-index: 10000;
+  font-size: calc((var(--hexWidth) + 2 * var(--hexMargin)) / 6);
+  font-family: var(--fts-text);
+  color: transparent;
+  background-color: rgba(13, 13, 13, 0.88);
+  overflow: visible;
+  position: absolute;
+  white-space: nowrap;
+  transform: skew(-10deg);
+  -webkit-transform: skew(-10deg);
+  -moz-transform: skew(-10deg);
+}
+.hexagon-wrap:hover {
+  z-index: 9000;
+}
+.hexagon-wrap:hover .hexagon-wrap-teamname {
+  padding: 0 0.5rem;
+  max-width: 300%;
+  color: var(--clr-secondary);
+  transition: max-width 0.5s ease-in, color 0.5s ease-in, padding 0.25s ease-in;
+  transition-delay: 0.175s;
+}
 
 @keyframes rotateHex {
   to {
-    transform: rotate3d(1, 0, 0, 0deg); } }
-
+    transform: rotate3d(1, 0, 0, 0deg);
+  }
+}
 .hexagon {
   width: var(--hexWidth);
   height: var(--heigth);
@@ -162,12 +187,14 @@
   filter: grayscale(100);
   transform: scale(1);
   transition: transform 2s ease-in-out;
-  transition-delay: 0.5s; }
-  .hexagon:hover {
-    background-size: 118%;
-    filter: grayscale(0);
-    transform: scale(var(--hoverScale));
-    transition: filter 0.5s ease-in, transform 0.33s ease-in-out; }
+  transition-delay: 0.5s;
+}
+.hexagon:hover {
+  background-size: 118%;
+  filter: grayscale(0);
+  transform: scale(var(--hoverScale));
+  transition: filter 0.5s ease-in, transform 0.33s ease-in-out;
+}
 
 .hexagon:hover:after {
   content: "";
@@ -183,9 +210,12 @@
   background-position: center;
   background-attachment: fixed;
   background-repeat: no-repeat;
-  animation: shine 1.75s 0.33s; }
+  animation: shine 1.75s 0.33s;
+}
 
 @keyframes shine {
   to {
     opacity: 1;
-    right: 210%; } }
+    right: 210%;
+  }
+}
