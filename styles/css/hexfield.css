@@ -85,11 +85,11 @@
   padding-top: 0.5rem;
   background-color: var(--clr-grey-medium);
   /*  background-image: linear-gradient(
-     var(--clr-grey-medium) calc(var(--hexMargin) / 40),
-     red,
-     var(--clr-grey-light),
-     var(--clr-grey-medium)
-   ); */
+    var(--clr-grey-medium) calc(var(--hexMargin) / 40),
+    red,
+    var(--clr-grey-light),
+    var(--clr-grey-medium)
+  ); */
 }
 
 .hexfield {
@@ -190,14 +190,16 @@
   clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
   filter: grayscale(100);
   transform: scale(1);
-  transition: transform 2s ease-in-out;
-  transition-delay: 0.5s;
+  transition: transform 1s ease-in-out;
 }
 .hexagon:hover {
-  background-size: 118%;
   filter: grayscale(0);
+  transition: filter 0.3s ease-in, transform 0.2s ease-in-out;
+}
+
+.hexagon.someclass {
+  background-size: 118%;
   transform: scale(var(--hoverScale));
-  transition: filter 0.5s ease-in, transform 0.33s ease-in-out;
 }
 
 .hexagon:hover:after {

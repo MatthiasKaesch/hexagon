@@ -1,4 +1,4 @@
-@import url("./VARIABLES.css");
+@import url('./VARIABLES.css');
 
 .teams-gallery {
   --hexCalculation: 1.1547;
@@ -17,7 +17,7 @@
       grid-row: 3;
       width: 100%;
       height: calc(100% - 16px);
-      content: "";
+      content: '';
       border-top: 8px solid var(--clr-grey-medium);
       border-bottom: 8px solid var(--clr-grey-medium);
       background: linear-gradient(var(--clr-grey-medium), black 3%);
@@ -38,7 +38,11 @@
       font-family: var(--fts-headline);
       width: fit-content;
       margin: 0 auto 0.5rem;
-      background-image: linear-gradient(90deg, var(--clr-primary), var(--clr-secondary));
+      background-image: linear-gradient(
+        90deg,
+        var(--clr-primary),
+        var(--clr-secondary)
+      );
       background-clip: text;
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
@@ -61,7 +65,14 @@
         height: 60px;
         margin: 0 auto;
         padding: 3px;
-        clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+        clip-path: polygon(
+          50% 0%,
+          100% 25%,
+          100% 75%,
+          50% 100%,
+          0% 75%,
+          0% 25%
+        );
       }
 
       &-button {
@@ -71,7 +82,14 @@
         background-color: var(--clr-deco-dark);
         border: none;
 
-        clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+        clip-path: polygon(
+          50% 0%,
+          100% 25%,
+          100% 75%,
+          50% 100%,
+          0% 75%,
+          0% 25%
+        );
 
         p {
           margin: 0;
@@ -101,7 +119,7 @@
     display: flex;
     padding-top: 0.5rem;
     background-color: var(--clr-grey-medium);
-   /*  background-image: linear-gradient(
+    /*  background-image: linear-gradient(
       var(--clr-grey-medium) calc(var(--hexMargin) / 40),
       red,
       var(--clr-grey-light),
@@ -131,14 +149,15 @@
     margin: 0 auto;
 
     &:after {
-      content: "";
+      content: '';
       display: block;
       width: 100%;
       height: 100%;
       margin-top: 6rem;
       border-radius: 50%;
       border: 12px solid var(--clr-primary);
-      border-color: var(--clr-primary) transparent var(--clr-secondary) transparent;
+      border-color: var(--clr-primary) transparent var(--clr-secondary)
+        transparent;
       animation: Spinner 1.2s linear infinite;
     }
   }
@@ -154,11 +173,14 @@
 }
 
 .hexfield::before {
-  content: "";
+  content: '';
   width: calc(var(--hexWidth) / 2 + var(--hexMargin));
   float: left;
   height: 100%;
-  shape-outside: repeating-linear-gradient(#0000 0 calc(var(--f) - 3px), #000 0 var(--f));
+  shape-outside: repeating-linear-gradient(
+    #0000 0 calc(var(--f) - 3px),
+    #000 0 var(--f)
+  );
   /* background-image: repeating-linear-gradient(#f60000 0 calc(var(--f) - 3px), #00ff04 0 var(--f)); */
   z-index: 100000;
 }
@@ -205,7 +227,8 @@
       max-width: 300%;
       color: var(--clr-secondary);
 
-      transition: max-width 0.5s ease-in, color 0.5s ease-in, padding 0.25s ease-in;
+      transition: max-width 0.5s ease-in, color 0.5s ease-in,
+        padding 0.25s ease-in;
       transition-delay: 0.175s;
     }
   }
@@ -225,22 +248,22 @@
   background-position: center;
   clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
   filter: grayscale(100);
-
   transform: scale(1);
-  transition: transform 2s ease-in-out;
-  transition-delay: 0.5s;
+  transition: transform 1s ease-in-out;
 
   &:hover {
-    background-size: 118%;
     filter: grayscale(0);
-    transform: scale(var(--hoverScale));
-
-    transition: filter 0.5s ease-in, transform 0.33s ease-in-out;
+    transition: filter 0.3s ease-in, transform 0.2s ease-in-out;
   }
 }
 
+.hexagon.someclass {
+  background-size: 118%;
+  transform: scale(var(--hoverScale));
+}
+
 .hexagon:hover:after {
-  content: "";
+  content: '';
   position: absolute;
   top: -30%;
   right: -200%;
